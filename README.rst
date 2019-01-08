@@ -9,6 +9,8 @@ PyStun
 ======
 A Python STUN client for getting NAT type and external IP
 
+This is a fork of jtriley's pystun repo.
+
 This is a fork of pystun originally created by gaohawk (http://code.google.com/p/pystun/)
 
 PyStun follows RFC 3489: http://www.ietf.org/rfc/rfc3489.txt
