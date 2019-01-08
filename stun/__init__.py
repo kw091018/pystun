@@ -174,8 +174,10 @@ def stun_test(sock, host, port, source_ip, source_port, send_data=""):
                     ])
                     retVal['ChangedIP'] = ip
                     retVal['ChangedPort'] = port
-                # if attr_type == ServerName:
-                    # serverName = buf[(base+4):(base+4+attr_len)]
+                if attr_type == ServerName:
+                    global serverName
+	            serverName = buf[(base+4):(base+4+attr_len)]
+	            #print serverName
                 base = base + 4 + attr_len
                 len_remain = len_remain - (4 + attr_len)
     # s.close()
@@ -254,4 +256,4 @@ def get_ip_info(source_ip="0.0.0.0", source_port=54320, stun_host=None,
     external_ip = nat['ExternalIP']
     external_port = nat['ExternalPort']
     s.close()
-    return (nat_type, external_ip, external_port)
+    return (nat_type, external_ip, external_port, serverName, stun_host, stun_port)

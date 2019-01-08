@@ -48,7 +48,7 @@ def main():
             logging.basicConfig()
             stun.log.setLevel(logging.DEBUG)
 
-        nat_type, external_ip, external_port = stun.get_ip_info(
+        nat_type, external_ip, external_port, serverName, stun_host, stun_port = stun.get_ip_info(
             source_ip=options.source_ip,
             source_port=options.source_port,
             stun_host=options.stun_host,
@@ -57,6 +57,8 @@ def main():
         print('NAT Type:', nat_type)
         print('External IP:', external_ip)
         print('External Port:', external_port)
+        print('Server Name:', serverName)
+	print('STUN Server: ', stun_host,":",stun_port,sep='')
     except KeyboardInterrupt:
         sys.exit()
 
